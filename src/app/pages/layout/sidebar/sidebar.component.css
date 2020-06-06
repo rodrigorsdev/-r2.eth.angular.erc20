@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.sidebar-heading {
+    color: #ffffff;
+    cursor: default;
+}
+
+.sidebar-heading>span {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sidebar-heading>span:hover {
+    color: #d35613;
+}
+
+.bg-light {
+    background-color: #132644 !important;
+}
+
+.list-group>a {
+    color: #ffffff;
+}
+
+.list-group>a i {
+    padding: 0 10px 0 10px;
+}
+
+.list-group-item:hover {
+    background-color: rgb(211, 86, 19, 0.5) !important;
+}
+
+.list-group-item.active {
+    outline: none;
+    border: none;
+    background-color: rgb(211, 86, 19, 0.2) !important;
+    font-weight: bold;
+    border-right: 5px solid #d35613;
+}
+
+.list-group-item.active:hover {
+    background-color: rgb(211, 86, 19, 0.5) !important;
+}
+
+.list-group-item.active i {
+    color: #d35613;
+}
+
+.d-inline-block>a {
+    color: #fff !important;
+}
+
+.d-inline-block>a i {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.list-group-item.footer {
+    position: absolute;
+    bottom: 0;
+    width: 15rem;
+    border-top: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+.list-group-item.footer i {
+    color: green;
+}

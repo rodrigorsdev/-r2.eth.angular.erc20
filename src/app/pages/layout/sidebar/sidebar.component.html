@@ -1,0 +1,58 @@
+<div class="bg-light" id="sidebar-wrapper">
+  <div class="sidebar-heading"> <span>r2</span> Manager </div>
+  <div class="list-group">
+    <a [routerLink]="['/home']" routerLinkActive="active" class="list-group-item list-group-item-action bg-light">
+      <i class="fa fa-columns"></i> Dashboard
+    </a>
+    <a class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-coins"></i> Balance of
+    </a>
+    <a class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-hand-holding-usd"></i> Allowance
+    </a>
+    <div ngbDropdown class="d-inline-block">
+      <a class="list-group-item list-group-item-action bg-light" id="dropdownTransfer" ngbDropdownToggle>
+        <i class="fas fa-exchange-alt"></i> Transfer
+      </a>
+      <div ngbDropdownMenu aria-labelledby="dropdownTransfer">
+        <button ngbDropdownItem>Transfer</button>
+        <button ngbDropdownItem>Transfer from</button>
+      </div>
+    </div>
+    <div ngbDropdown class="d-inline-block">
+      <a class="list-group-item list-group-item-action bg-light" id="dropdownApprovals" ngbDropdownToggle>
+        <i class="fas fa-thumbs-up"></i> Approvals
+      </a>
+      <div ngbDropdownMenu aria-labelledby="dropdownApprovals">
+        <button ngbDropdownItem>Approve</button>
+        <button ngbDropdownItem>Increase Approval</button>
+        <button ngbDropdownItem>Decrease Approval</button>
+      </div>
+    </div>
+    <div ngbDropdown class="d-inline-block">
+      <a class="list-group-item list-group-item-action bg-light" id="dropdownMintBurn" ngbDropdownToggle>
+        <i class="fas fa-burn"></i> Mint/Burn
+      </a>
+      <div ngbDropdownMenu aria-labelledby="dropdownMintBurn">
+        <button ngbDropdownItem>Mint to</button>
+        <button ngbDropdownItem>Burn from</button>
+      </div>
+    </div>
+    <div ngbDropdown class="d-inline-block">
+      <a class="list-group-item list-group-item-action bg-light" id="dropdownRoles" ngbDropdownToggle>
+        <i class="fas fa-user-tag"></i> Roles
+      </a>
+      <div ngbDropdownMenu aria-labelledby="dropdownRoles">
+        <button ngbDropdownItem>Verify</button>
+        <button ngbDropdownItem>Add</button>
+        <button ngbDropdownItem>Remove</button>
+      </div>
+    </div>
+    <a class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-circle"></i> Lifecycle
+    </a>
+    <a class="list-group-item list-group-item-action bg-light footer">
+      <i class="fas fa-circle"></i> Status
+    </a>
+  </div>
+</div>
