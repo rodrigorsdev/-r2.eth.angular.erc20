@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NotFoundComponent } from './pages/layout/not-found/not-found.component';
-import { HomeComponent } from './pages/home/home.component';
-
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/pages/home', pathMatch: 'full' },
+  {
+    path: 'pages',
+    loadChildren: () =>
+      import('./pages/pages.module')
+        .then(a => a.PagesModule)
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

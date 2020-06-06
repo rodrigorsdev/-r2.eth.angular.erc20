@@ -1,20 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { SidebarService } from './services/sidebar.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<router-outlet></router-outlet>'
 })
-export class AppComponent implements OnInit {
-
-  isToogled: boolean;
-
-  constructor(
-    private sidebarService: SidebarService
-  ) { }
-
-  ngOnInit(): void {
-    this.sidebarService.currentState.subscribe(a => this.isToogled = a);
-  }
+export class AppComponent {
 }

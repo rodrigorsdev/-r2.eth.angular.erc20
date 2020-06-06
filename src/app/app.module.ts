@@ -12,22 +12,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NavComponent } from './pages/layout/nav/nav.component';
-import { SidebarComponent } from './pages/layout/sidebar/sidebar.component';
-import { NotFoundComponent } from './pages/layout/not-found/not-found.component';
-
-import { WalletCardComponent } from './components/wallet-card/wallet-card.component';
-
-import { HomeComponent } from './pages/home/home.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavComponent,
-    SidebarComponent,
-    NotFoundComponent,
-    HomeComponent,
-    WalletCardComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +28,8 @@ import { HomeComponent } from './pages/home/home.component';
     TextMaskModule,
     NgxSpinnerModule,
     QRCodeModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
