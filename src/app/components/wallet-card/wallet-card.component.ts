@@ -1,12 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { provider } from 'src/app/services/ethers.service';
-import { ethers } from 'ethers';
 import { AccountService } from 'src/app/services/account.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { LocalStorageKeysEnum } from 'src/app/models/local-storage-keys.enum';
-import { ContractService } from 'src/app/services/contract.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-wallet-card',
@@ -23,7 +21,8 @@ export class WalletCardComponent implements OnInit {
     private modalService: NgbModal,
     private toastrService: ToastrService,
     private accountService: AccountService,
-    private storage: StorageService
+    private storage: StorageService,
+    private tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
@@ -32,8 +31,8 @@ export class WalletCardComponent implements OnInit {
     this.accountService.balanceEthers.subscribe((balance) => {
       this.balanceEther = balance;
     });
-    this.accountService.updateBalanceErc20(this.address);
-    this.accountService.balanceErc20.subscribe((balance) => {
+    this.tokenService.updateBalance(this.address);
+    this.tokenService.balance.subscribe((balance) => {
       this.balanceErc20 = balance;
     });
   }
@@ -60,9 +59,8 @@ export class WalletCardComponent implements OnInit {
     });
   }
 
-  updateBalance(){
+  updateBalance() {
     this.accountService.updateBalanceEthers(this.address);
-    this.accountService.updateBalanceErc20(this.address);
+    this.tokenService.updateBalance(this.address);
   }
-
 }

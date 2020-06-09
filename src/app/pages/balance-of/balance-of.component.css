@@ -1,0 +1,13 @@
+label{
+    padding: 0 10px;
+}
+
+button:disabled{
+    padding-left: 10px;
+}
+
+.page-title {
+    font-size: x-large;
+    color: #132644;
+    font-weight: bold;
+  }

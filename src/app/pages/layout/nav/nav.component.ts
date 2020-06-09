@@ -7,6 +7,7 @@ import { provider } from 'src/app/services/ethers.service';
 import { ethers } from 'ethers';
 import { network } from '../../../utils/network.util';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-nav',
@@ -21,12 +22,15 @@ export class NavComponent implements OnInit {
   erc20ContractAddress: string;
   totalSupply: number;
   networkName: string;
+  name: string;
+  symbol: string;
 
   constructor(
     private sidebarService: SidebarService,
     @Inject(provider) private ethersProvider: ethers.providers.Web3Provider,
     private storage: StorageService,
     private contractService: ContractService,
+    private tokenService: TokenService,
     private router: Router
   ) { }
 
@@ -37,9 +41,19 @@ export class NavComponent implements OnInit {
       LocalStorageKeysEnum.er20address
     );
 
-    this.contractService.contractInstance.subscribe(async (contractInstance) => {
-      if (contractInstance)
-        this.totalSupply = await contractInstance.totalSupply();
+    this.tokenService.setTotalSupply();
+    this.tokenService.totalSupply.subscribe((totalSupply) => {
+      this.totalSupply = totalSupply;
+    });
+
+    this.tokenService.setName();
+    this.tokenService.name.subscribe((name) => {
+      this.name = name;
+    });
+
+    this.tokenService.setSymbol();
+    this.tokenService.symbol.subscribe((symbol) => {
+      this.symbol = symbol;
     });
 
     this.networkName = network(this.ethersProvider._web3Provider['networkVersion']);
