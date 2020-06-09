@@ -6,6 +6,12 @@ import { NotFoundComponent } from './pages/layout/not-found/not-found.component'
 const routes: Routes = [
   { path: '', redirectTo: '/pages/home', pathMatch: 'full' },
   {
+    path: 'accounts',
+    loadChildren: () =>
+      import('./accounts/account.module')
+        .then(a => a.AccountModule)
+  },
+  {
     path: 'pages',
     loadChildren: () =>
       import('./pages/pages.module')

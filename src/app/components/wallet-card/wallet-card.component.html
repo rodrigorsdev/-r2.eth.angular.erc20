@@ -8,14 +8,15 @@
             {{address}}
         </p>
         <p class="card-text text-right">
-            {{balanceErc20}} R2T
+            {{balanceEther}} ETH
         </p>
         <p class="card-text text-right">
-            {{balanceEther}} ETH
+            {{balanceErc20}} R2T
         </p>
         <div class="card-btn text-right">
             <button class="btn btn-lg" (click)="openQrCodeModal(qrcodemodal)"><i class="fa fa-qrcode"></i></button>
             <button class="btn btn-lg" (click)="copyToClipboard()"><i class="fa fa-copy"></i></button>
+            <button class="btn btn-lg" (click)="updateBalance()"><i class="fa fa-refresh"></i></button>
         </div>
     </div>
 </div>

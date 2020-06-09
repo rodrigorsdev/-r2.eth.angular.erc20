@@ -1,0 +1,15 @@
+.container {
+    margin-top: 150px;
+}
+
+.icon-danger {
+    color: red;
+}
+
+.icon-success {
+    color: green;
+}
+
+.form-check{
+    padding-top: 10px;
+}

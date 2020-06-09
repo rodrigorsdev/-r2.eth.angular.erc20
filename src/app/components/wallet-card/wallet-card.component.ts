@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { provider } from 'src/app/services/ethers.service';
+import { ethers } from 'ethers';
+import { AccountService } from 'src/app/services/account.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { LocalStorageKeysEnum } from 'src/app/models/local-storage-keys.enum';
+import { ContractService } from 'src/app/services/contract.service';
 
 @Component({
   selector: 'app-wallet-card',
@@ -9,23 +15,34 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class WalletCardComponent implements OnInit {
 
-  address: string = '0x17cA6A08758F4A078B9c53ca25E6F6736dF34094';
-  balanceErc20: string = '100';
-  balanceEther: string = '5';
+  address: string;
+  balanceEther: string;
+  balanceErc20: string;
 
   constructor(
     private modalService: NgbModal,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private accountService: AccountService,
+    private storage: StorageService
   ) { }
 
   ngOnInit(): void {
+    this.address = this.storage.getLocalStorage(LocalStorageKeysEnum.connectedAddress);
+    this.accountService.updateBalanceEthers(this.address);
+    this.accountService.balanceEthers.subscribe((balance) => {
+      this.balanceEther = balance;
+    });
+    this.accountService.updateBalanceErc20(this.address);
+    this.accountService.balanceErc20.subscribe((balance) => {
+      this.balanceErc20 = balance;
+    });
   }
 
-  openQrCodeModal(qrcodemodal){
+  openQrCodeModal(qrcodemodal) {
     this.modalService.open(qrcodemodal);
   }
 
-  copyToClipboard(){
+  copyToClipboard() {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
@@ -41,6 +58,11 @@ export class WalletCardComponent implements OnInit {
     this.toastrService.success('Success', 'Address copied to clipboard!', {
       progressBar: true
     });
+  }
+
+  updateBalance(){
+    this.accountService.updateBalanceEthers(this.address);
+    this.accountService.updateBalanceErc20(this.address);
   }
 
 }
