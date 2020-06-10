@@ -28,7 +28,9 @@ import { PagesModule } from './pages/pages.module';
     TextMaskModule,
     NgxSpinnerModule,
     QRCodeModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      countDuplicates: true
+    }),
     PagesModule
   ],
   providers: [],

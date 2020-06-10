@@ -1,0 +1,29 @@
+<span class="page-title">Allowance</span>
+<br>
+<br>
+<form (ngSubmit)="allowance()" [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-6">
+            <label for="owner">Owner</label>
+            <input type="text" class="form-control" id="owner" formControlName="owner"
+                [ngClass]="{ 'is-invalid': form.controls.owner.invalid && form.controls.owner.dirty, 'is-valid': form.controls.owner.valid }">
+            <span class="text-danger" *ngIf="form.controls.owner.invalid && form.controls.owner.dirty">
+                <p *ngIf="form.controls.owner.errors.required">Owner is required!</p>
+                <p *ngIf="form.controls.owner.errors.rangeLength">Owner must be exactle 42 characters!</p>
+            </span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-6">
+            <label for="spender">Spender</label>
+            <input type="text" class="form-control" id="spender" formControlName="spender"
+                [ngClass]="{ 'is-invalid': form.controls.spender.invalid && form.controls.spender.dirty, 'is-valid': form.controls.spender.valid }">
+            <span class="text-danger" *ngIf="form.controls.spender.invalid && form.controls.spender.dirty">
+                <p *ngIf="form.controls.spender.errors.required">Spender is required!</p>
+                <p *ngIf="form.controls.spender.errors.number">Invalid format!</p>
+            </span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Allowance</button>
+</form>
+<p>{{allowanceNumber}}</p>

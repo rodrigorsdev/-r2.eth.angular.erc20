@@ -44,3 +44,9 @@ body {
   button:disabled, button[disabled] {
     cursor: not-allowed;
   }
+
+  .page-title {
+    font-size: x-large;
+    color: #132644;
+    font-weight: bold;
+  }

@@ -16,6 +16,7 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { WalletCardComponent } from '../components/wallet-card/wallet-card.component';
 import { HomeComponent } from './home/home.component';
 import { BalanceOfComponent } from './balance-of/balance-of.component';
+import { AllowanceComponent } from './allowance/allowance.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { BalanceOfComponent } from './balance-of/balance-of.component';
         WalletCardComponent,
         HomeComponent,
         BalanceOfComponent,
+        AllowanceComponent,
     ],
     imports:[
         CommonModule,

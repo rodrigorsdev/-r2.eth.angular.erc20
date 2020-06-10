@@ -1,20 +1,16 @@
 <span class="page-title">Balance of</span>
 <br>
 <br>
-<form (ngSubmit)="balanceOf()" [formGroup]="form" class="form-inline">
-
-    <div class="form-group mb-2">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address"
-            [ngClass]="{ 'is-invalid': form.controls.address.invalid && form.controls.address.dirty, 'is-valid': form.controls.address.valid }">
-        <span class="text-danger" *ngIf="form.controls.address.invalid && form.controls.address.dirty">
-            <p *ngIf="form.controls.address.errors.required">To address is required!</p>
-            <p *ngIf="form.controls.address.errors.rangeLength">To address must be exactle 42 characters!</p>
-        </span>
+<form (ngSubmit)="balanceOf()" [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-4">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address"
+                [ngClass]="{ 'is-invalid': form.controls.address.invalid && form.controls.address.dirty, 'is-valid': form.controls.address.valid }">
+            <span class="text-danger" *ngIf="form.controls.address.invalid && form.controls.address.dirty">
+                <p *ngIf="form.controls.address.errors.required">To address is required!</p>
+            </span>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary mb-2" [disabled]="form.invalid">Balance of</button>
-    <div class="form-group mb-2" *ngIf="balance">
-        <label>Balance is: </label>
-        <span class="form-control">{{balance}}</span>
-    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Balance of</button>
 </form>

@@ -4,13 +4,15 @@ import { NgModule } from '@angular/core';
 import { PagesAppComponent } from './pages.app.component';
 import { HomeComponent } from './home/home.component';
 import { BalanceOfComponent } from './balance-of/balance-of.component';
+import { AllowanceComponent } from './allowance/allowance.component';
 
 const routerConfig: Routes = [
     {
         path: '', component: PagesAppComponent,
         children: [
             { path: 'home', component: HomeComponent },
-            { path: 'balance-of', component: BalanceOfComponent }
+            { path: 'balance-of', component: BalanceOfComponent },
+            { path: 'allowance', component: AllowanceComponent }
         ]
     }
 ];

@@ -10,25 +10,30 @@ export class TokenService {
     private _name = new BehaviorSubject<any>(null);
     private _symbol = new BehaviorSubject<any>(null);
     private _balance = new BehaviorSubject<any>(null);
+    private _allowanceNumber = new BehaviorSubject<any>(null);
 
     constructor(
         private contractService: ContractService
-    ) {    }
+    ) { }
 
     get totalSupply() {
         return this._totalSupply.asObservable();
     }
 
-    get name(){
+    get name() {
         return this._name.asObservable();
     }
 
-    get symbol(){
+    get symbol() {
         return this._symbol.asObservable();
     }
 
     get balance() {
         return this._balance.asObservable();
+    }
+
+    get allowanceNumber() {
+        return this._allowanceNumber.asObservable();
     }
 
     public setTotalSupply() {
@@ -38,14 +43,14 @@ export class TokenService {
         });
     }
 
-    public setName(){
+    public setName() {
         this.contractService.contractInstance.subscribe(async (contractInstance) => {
             const result = await contractInstance.name();
             this._name.next(result);
         });
     }
 
-    public setSymbol(){
+    public setSymbol() {
         this.contractService.contractInstance.subscribe(async (contractInstance) => {
             const result = await contractInstance.symbol();
             this._symbol.next(result);
@@ -59,5 +64,14 @@ export class TokenService {
                 this._balance.next(Number(balance).toString());
             }
         })
+    }
+
+    public allowance(owner: string, spender: string) {
+        this.contractService.contractInstance.subscribe(async (contractInstance) => {
+            if (contractInstance) {
+                const allowance = await contractInstance.allowance(owner, spender);
+                this._allowanceNumber.next(allowance);
+            }
+        });
     }
 }
