@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { ContractService } from './contract.service';
 
 @Injectable({
@@ -70,7 +70,7 @@ export class TokenService {
         this.contractService.contractInstance.subscribe(async (contractInstance) => {
             if (contractInstance) {
                 const allowance = await contractInstance.allowance(owner, spender);
-                this._allowanceNumber.next(allowance);
+                this._allowanceNumber.next(Number(allowance).toString());
             }
         });
     }

@@ -3,7 +3,7 @@
 <br>
 <form (ngSubmit)="allowance()" [formGroup]="form">
     <div class="form-row">
-        <div class="form-group col-12 com-sm-12 col-md-6">
+        <div class="form-group col-12 com-sm-12 col-md-4">
             <label for="owner">Owner</label>
             <input type="text" class="form-control" id="owner" formControlName="owner"
                 [ngClass]="{ 'is-invalid': form.controls.owner.invalid && form.controls.owner.dirty, 'is-valid': form.controls.owner.valid }">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-12 com-sm-12 col-md-6">
+        <div class="form-group col-12 com-sm-12 col-md-4">
             <label for="spender">Spender</label>
             <input type="text" class="form-control" id="spender" formControlName="spender"
                 [ngClass]="{ 'is-invalid': form.controls.spender.invalid && form.controls.spender.dirty, 'is-valid': form.controls.spender.valid }">
@@ -24,6 +24,12 @@
             </span>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Allowance</button>
+    <div class="row">
+        <div class="col-3 com-sm-3 col-md-2">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Allowance</button>
+        </div>
+        <div class="col-2 com-sm-2 col-md-2" *ngIf="allowanceResult">
+            <h5><strong>Allowance</strong> is {{allowanceResult}}</h5>
+        </div>
+    </div>
 </form>
-<p>{{allowanceNumber}}</p>
