@@ -1,0 +1,35 @@
+<span class="page-title">Allowance</span>
+<br>
+<br>
+<form (ngSubmit)="transfer()" [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-4">
+            <label for="toAddress">To address</label>
+            <input type="text" class="form-control" id="toAddress" formControlName="toAddress"
+                [ngClass]="{ 'is-invalid': form.controls.toAddress.invalid && form.controls.toAddress.dirty, 'is-valid': form.controls.toAddress.valid }">
+            <span class="text-danger" *ngIf="form.controls.toAddress.invalid && form.controls.toAddress.dirty">
+                <p *ngIf="form.controls.toAddress.errors.required">To Address is required!</p>
+                <p *ngIf="form.controls.toAddress.errors.rangeLength">To Address must be exactle 42 characters!</p>
+            </span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-4">
+            <label for="value">Value</label>
+            <input type="text" class="form-control" id="value" formControlName="value"
+                [ngClass]="{ 'is-invalid': form.controls.value.invalid && form.controls.value.dirty, 'is-valid': form.controls.value.valid }">
+            <span class="text-danger" *ngIf="form.controls.value.invalid && form.controls.value.dirty">
+                <p *ngIf="form.controls.value.errors.required">Value is required!</p>
+                <p *ngIf="form.controls.value.errors.number">Invalid format!</p>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 com-sm-3 col-md-2">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Transfer</button>
+        </div>
+        <div class="col-2 com-sm-2 col-md-2" *ngIf="transferResult">
+            <h5><strong>Transaction hash</strong> is {{transferResult}}</h5>
+        </div>
+    </div>
+</form>

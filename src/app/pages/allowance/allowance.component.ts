@@ -9,7 +9,7 @@ import { CustomValidators } from 'ngx-custom-validators';
   templateUrl: './allowance.component.html',
   styleUrls: ['./allowance.component.css']
 })
-export class AllowanceComponent {
+export class AllowanceComponent implements OnInit {
 
   form: FormGroup;
   allowanceResult: number;
@@ -25,12 +25,14 @@ export class AllowanceComponent {
     });
   }
 
-  allowance() {
-    this.model = Object.assign({}, this.form.value);
-
+  ngOnInit(): void {
     this.tokenService.allowanceNumber.subscribe((result) => {
       this.allowanceResult = result;
     });
+  }
+
+  allowance() {
+    this.model = Object.assign({}, this.form.value);
     this.tokenService.allowance(this.model.owner, this.model.spender)
   }
 }

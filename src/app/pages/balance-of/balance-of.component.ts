@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -7,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
   templateUrl: './balance-of.component.html',
   styleUrls: ['./balance-of.component.css']
 })
-export class BalanceOfComponent {
+export class BalanceOfComponent implements OnInit {
 
   form: FormGroup;
   address: string;
@@ -22,12 +22,14 @@ export class BalanceOfComponent {
     });
   }
 
-  balanceOf() {
-    this.address = this.form.controls.address.value;
+  ngOnInit(): void {
     this.tokenService.balance.subscribe((result) => {
       this.balanceResult = result;
     });
+  }
 
+  balanceOf() {
+    this.address = this.form.controls.address.value;
     this.tokenService.updateBalance(this.address);
   }
 }

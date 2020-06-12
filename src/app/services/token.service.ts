@@ -11,6 +11,7 @@ export class TokenService {
     private _symbol = new BehaviorSubject<any>(null);
     private _balance = new BehaviorSubject<any>(null);
     private _allowanceNumber = new BehaviorSubject<any>(null);
+    private _transferTransactionHash = new BehaviorSubject<any>(null);
 
     constructor(
         private contractService: ContractService
@@ -34,6 +35,10 @@ export class TokenService {
 
     get allowanceNumber() {
         return this._allowanceNumber.asObservable();
+    }
+
+    get transferTransactionHash() {
+        return this._transferTransactionHash.asObservable();
     }
 
     public setTotalSupply() {
@@ -71,6 +76,15 @@ export class TokenService {
             if (contractInstance) {
                 const allowance = await contractInstance.allowance(owner, spender);
                 this._allowanceNumber.next(Number(allowance).toString());
+            }
+        });
+    }
+
+    public transfer(to: string, value: number) {
+        this.contractService.contractInstance.subscribe(async (contractInstance) => {
+            if (contractInstance) {
+                const transaction = await contractInstance.transfer(to, value);
+                this._transferTransactionHash.next(transaction.hash);
             }
         });
     }

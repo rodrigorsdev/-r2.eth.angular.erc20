@@ -17,6 +17,7 @@ import { WalletCardComponent } from '../components/wallet-card/wallet-card.compo
 import { HomeComponent } from './home/home.component';
 import { BalanceOfComponent } from './balance-of/balance-of.component';
 import { AllowanceComponent } from './allowance/allowance.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { AllowanceComponent } from './allowance/allowance.component';
         HomeComponent,
         BalanceOfComponent,
         AllowanceComponent,
+        TransferComponent,
     ],
     imports:[
         CommonModule,

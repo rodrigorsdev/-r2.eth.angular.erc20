@@ -5,6 +5,7 @@ import { PagesAppComponent } from './pages.app.component';
 import { HomeComponent } from './home/home.component';
 import { BalanceOfComponent } from './balance-of/balance-of.component';
 import { AllowanceComponent } from './allowance/allowance.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 const routerConfig: Routes = [
     {
@@ -12,7 +13,8 @@ const routerConfig: Routes = [
         children: [
             { path: 'home', component: HomeComponent },
             { path: 'balance-of', component: BalanceOfComponent },
-            { path: 'allowance', component: AllowanceComponent }
+            { path: 'allowance', component: AllowanceComponent },
+            { path: 'transfer', component: TransferComponent }
         ]
     }
 ];
