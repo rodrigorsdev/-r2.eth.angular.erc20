@@ -14,8 +14,10 @@ import { TokenService } from 'src/app/services/token.service';
 export class WalletCardComponent implements OnInit {
 
   address: string;
+  addressSubstring: string;
   balanceEther: string;
   balanceErc20: string;
+  symbol: string;
 
   constructor(
     private modalService: NgbModal,
@@ -27,6 +29,7 @@ export class WalletCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.address = this.storage.getLocalStorage(LocalStorageKeysEnum.connectedAddress);
+    this.addressSubstring = `${this.address.substring(0, 5)}...${this.address.substring(18, this.address.length)}`;
     this.accountService.updateBalanceEthers(this.address);
     this.accountService.balanceEthers.subscribe((balance) => {
       this.balanceEther = balance;
@@ -34,6 +37,10 @@ export class WalletCardComponent implements OnInit {
     this.tokenService.updateBalance(this.address);
     this.tokenService.balance.subscribe((balance) => {
       this.balanceErc20 = balance;
+    });
+    this.tokenService.setSymbol();
+    this.tokenService.symbol.subscribe((symbol) => {
+      this.symbol = symbol;
     });
   }
 

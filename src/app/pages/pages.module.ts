@@ -18,6 +18,16 @@ import { HomeComponent } from './home/home.component';
 import { BalanceOfComponent } from './balance-of/balance-of.component';
 import { AllowanceComponent } from './allowance/allowance.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { TransferFromComponent } from './transfer-from/transfer-from.component';
+import { ApproveComponent } from './approve/approve.component';
+import { IncreaseApprovalComponent } from './increase-approval/increase-approval.component';
+import { DecreaseApprovalComponent } from './decrease-approval/decrease-approval.component';
+import { MintToComponent } from './mint-to/mint-to.component';
+import { BurnFromComponent } from './burn-from/burn-from.component';
+import { RoleVerifyComponent } from './role-verify/role-verify.component';
+import { RoleAddComponent } from './role-add/role-add.component';
+import { RoleRemoveComponent } from './role-remove/role-remove.component';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +40,16 @@ import { TransferComponent } from './transfer/transfer.component';
         BalanceOfComponent,
         AllowanceComponent,
         TransferComponent,
+        TransferFromComponent,
+        ApproveComponent,
+        IncreaseApprovalComponent,
+        DecreaseApprovalComponent,
+        MintToComponent,
+        BurnFromComponent,
+        RoleVerifyComponent,
+        RoleAddComponent,
+        RoleRemoveComponent,
+        LifecycleComponent,
     ],
     imports:[
         CommonModule,

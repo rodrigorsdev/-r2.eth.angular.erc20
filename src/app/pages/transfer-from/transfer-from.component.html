@@ -1,7 +1,18 @@
-<span class="page-title">Transfer</span>
+<span class="page-title">Transfer from</span>
 <br>
 <br>
-<form (ngSubmit)="transfer()" [formGroup]="form">
+<form (ngSubmit)="transferFrom()" [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-12 com-sm-12 col-md-4">
+            <label for="from">From address</label>
+            <input type="text" class="form-control" id="from" formControlName="from"
+                [ngClass]="{ 'is-invalid': form.controls.from.invalid && form.controls.from.dirty, 'is-valid': form.controls.from.valid }">
+            <span class="text-danger" *ngIf="form.controls.from.invalid && form.controls.from.dirty">
+                <p *ngIf="form.controls.from.errors.required">From Address is required!</p>
+                <p *ngIf="form.controls.from.errors.rangeLength">From Address must be exactle 42 characters!</p>
+            </span>
+        </div>
+    </div>
     <div class="form-row">
         <div class="form-group col-12 com-sm-12 col-md-4">
             <label for="to">To address</label>

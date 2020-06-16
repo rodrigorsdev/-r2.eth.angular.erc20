@@ -1,15 +1,15 @@
-<span class="page-title">Transfer</span>
+<span class="page-title">Increase approval</span>
 <br>
 <br>
-<form (ngSubmit)="transfer()" [formGroup]="form">
+<form (ngSubmit)="increaseApproval()" [formGroup]="form">
     <div class="form-row">
         <div class="form-group col-12 com-sm-12 col-md-4">
-            <label for="to">To address</label>
-            <input type="text" class="form-control" id="to" formControlName="to"
-                [ngClass]="{ 'is-invalid': form.controls.to.invalid && form.controls.to.dirty, 'is-valid': form.controls.to.valid }">
-            <span class="text-danger" *ngIf="form.controls.to.invalid && form.controls.to.dirty">
-                <p *ngIf="form.controls.to.errors.required">To Address is required!</p>
-                <p *ngIf="form.controls.to.errors.rangeLength">To Address must be exactle 42 characters!</p>
+            <label for="to">Spender</label>
+            <input type="text" class="form-control" id="spender" formControlName="spender"
+                [ngClass]="{ 'is-invalid': form.controls.spender.invalid && form.controls.spender.dirty, 'is-valid': form.controls.spender.valid }">
+            <span class="text-danger" *ngIf="form.controls.spender.invalid && form.controls.spender.dirty">
+                <p *ngIf="form.controls.spender.errors.required">Spender is required!</p>
+                <p *ngIf="form.controls.spender.errors.rangeLength">Spender must be exactle 42 characters!</p>
             </span>
         </div>
     </div>
@@ -26,10 +26,10 @@
     </div>
     <div class="row">
         <div class="col-3 com-sm-3 col-md-2">
-            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Transfer</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Approve</button>
         </div>
-        <div class="col-2 com-sm-2 col-md-2" *ngIf="transferResult">
-            <h5><strong>Transaction hash</strong> is {{transferResult}}</h5>
+        <div class="col-2 com-sm-2 col-md-2" *ngIf="result">
+            <h5><strong>Transaction hash</strong> is {{result}}</h5>
         </div>
     </div>
 </form>

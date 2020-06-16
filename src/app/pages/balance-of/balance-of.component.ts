@@ -10,6 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class BalanceOfComponent implements OnInit {
 
   form: FormGroup;
+  formSubmitted: boolean = false;
   address: string;
   balanceResult: string;
 
@@ -31,5 +32,6 @@ export class BalanceOfComponent implements OnInit {
   balanceOf() {
     this.address = this.form.controls.address.value;
     this.tokenService.updateBalance(this.address);
+    this.formSubmitted = true;
   }
 }

@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  erc20:{
-    abi:[
+  gasLimit: 10000000,
+  erc20: {
+    abi: [
       {
         "inputs": [
           {

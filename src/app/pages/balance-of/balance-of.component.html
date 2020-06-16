@@ -16,7 +16,7 @@
         <div class="col-3 com-sm-3 col-md-2">
             <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Balance of</button>
         </div>
-        <div class="col-2 com-sm-2 col-md-2" *ngIf="balanceResult">
+        <div class="col-2 com-sm-2 col-md-2" *ngIf="balanceResult && formSubmitted">
             <h5><strong>Balance</strong> is {{balanceResult}}</h5>
         </div>
     </div>

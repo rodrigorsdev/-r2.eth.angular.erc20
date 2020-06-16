@@ -33,6 +33,6 @@ export class AllowanceComponent implements OnInit {
 
   allowance() {
     this.model = Object.assign({}, this.form.value);
-    this.tokenService.allowance(this.model.owner, this.model.spender)
+    this.tokenService.allowance(this.model);
   }
 }

@@ -1,22 +1,22 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { TokenService } from 'src/app/services/token.service';
 import { CustomValidators } from 'ngx-custom-validators';
-import { TransferModel } from 'src/app/models/transfer.model';
+import { TokenService } from 'src/app/services/token.service';
 import { link } from '../../utils/transaction.util';
 import { provider } from 'src/app/services/ethers.service';
 import { ethers } from 'ethers';
+import { ApproveModel } from 'src/app/models/approve.model';
 
 @Component({
-  selector: 'app-transfer',
-  templateUrl: './transfer.component.html',
-  styleUrls: ['./transfer.component.css']
+  selector: 'app-approve',
+  templateUrl: './approve.component.html',
+  styleUrls: ['./approve.component.css']
 })
-export class TransferComponent implements OnInit {
+export class ApproveComponent implements OnInit {
 
   form: FormGroup;
-  transferResult: string;
-  model: TransferModel;
+  model: ApproveModel;
+  approveResult: string;
 
   constructor(
     @Inject(provider) private ethersProvider: ethers.providers.Web3Provider,
@@ -24,23 +24,21 @@ export class TransferComponent implements OnInit {
     private tokenService: TokenService
   ) {
     this.form = this.fb.group({
-      to: ['', [Validators.required, CustomValidators.rangeLength([42, 42])]],
+      spender: ['', [Validators.required, CustomValidators.rangeLength([42, 42])]],
       value: ['', [Validators.required, CustomValidators.number]]
     });
   }
 
   async ngOnInit() {
     this.ethersProvider = await this.ethersProvider;
-
-    this.tokenService.transferTransactionHash.subscribe((result) => {
-
+    this.tokenService.approveTransactionHash.subscribe((result) => {
       if (result)
-        this.transferResult = link(this.ethersProvider._web3Provider['networkVersion'], result);
+        this.approveResult = link(this.ethersProvider._web3Provider['networkVersion'], result);
     });
   }
 
-  transfer() {
+  approve() {
     this.model = Object.assign({}, this.form.value);
-    this.tokenService.transfer(this.model);
+    this.tokenService.approve(this.model);
   }
 }

@@ -4,54 +4,61 @@
     <a [routerLink]="['/pages/home']" routerLinkActive="active" class="list-group-item list-group-item-action bg-light">
       <i class="fa fa-columns"></i> Dashboard
     </a>
-    <a [routerLink]="['/pages/balance-of']" routerLinkActive="active"  class="list-group-item list-group-item-action bg-light">
+    <a [routerLink]="['/pages/balance-of']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
       <i class="fas fa-coins"></i> Balance of
     </a>
-    <a [routerLink]="['/pages/allowance']" routerLinkActive="active"  class="list-group-item list-group-item-action bg-light">
+    <a [routerLink]="['/pages/allowance']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
       <i class="fas fa-hand-holding-usd"></i> Allowance
     </a>
-    <div ngbDropdown class="d-inline-block">
-      <a class="list-group-item list-group-item-action bg-light" id="dropdownTransfer" ngbDropdownToggle>
-        <i class="fas fa-exchange-alt"></i> Transfer
-      </a>
-      <div ngbDropdownMenu aria-labelledby="dropdownTransfer">
-        <button ngbDropdownItem [routerLink]="['/pages/transfer']" routerLinkActive="active" >Transfer</button>
-        <button ngbDropdownItem>Transfer from</button>
-      </div>
-    </div>
-    <div ngbDropdown class="d-inline-block">
-      <a class="list-group-item list-group-item-action bg-light" id="dropdownApprovals" ngbDropdownToggle>
-        <i class="fas fa-thumbs-up"></i> Approvals
-      </a>
-      <div ngbDropdownMenu aria-labelledby="dropdownApprovals">
-        <button ngbDropdownItem>Approve</button>
-        <button ngbDropdownItem>Increase Approval</button>
-        <button ngbDropdownItem>Decrease Approval</button>
-      </div>
-    </div>
-    <div ngbDropdown class="d-inline-block">
-      <a class="list-group-item list-group-item-action bg-light" id="dropdownMintBurn" ngbDropdownToggle>
-        <i class="fas fa-burn"></i> Mint/Burn
-      </a>
-      <div ngbDropdownMenu aria-labelledby="dropdownMintBurn">
-        <button ngbDropdownItem>Mint to</button>
-        <button ngbDropdownItem>Burn from</button>
-      </div>
-    </div>
-    <div ngbDropdown class="d-inline-block">
-      <a class="list-group-item list-group-item-action bg-light" id="dropdownRoles" ngbDropdownToggle>
-        <i class="fas fa-user-tag"></i> Roles
-      </a>
-      <div ngbDropdownMenu aria-labelledby="dropdownRoles">
-        <button ngbDropdownItem>Verify</button>
-        <button ngbDropdownItem>Add</button>
-        <button ngbDropdownItem>Remove</button>
-      </div>
-    </div>
-    <a class="list-group-item list-group-item-action bg-light">
+    <a [routerLink]="['/pages/transfer']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-exchange-alt"></i> Transfer
+    </a>
+    <a [routerLink]="['/pages/transfer-from']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-exchange-alt"></i> Transfer from
+    </a>
+    <a [routerLink]="['/pages/approve']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-thumbs-up"></i> Approve
+    </a>
+    <a [routerLink]="['/pages/increase-approval']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-plus-square"></i> Increase approval
+    </a>
+    <a [routerLink]="['/pages/decrease-approval']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-minus-square"></i> Decrease approval
+    </a>
+    <a [routerLink]="['/pages/mint-to']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-leaf"></i> Mint to
+    </a>
+    <a [routerLink]="['/pages/burn-from']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-burn"></i> Burn from
+    </a>
+    <a [routerLink]="['/pages/role-verify']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-user-tag"></i> Verify role
+    </a>
+    <a [routerLink]="['/pages/role-add']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-user-plus"></i> Add role
+    </a>
+    <a [routerLink]="['/pages/role-remove']" routerLinkActive="active"
+      class="list-group-item list-group-item-action bg-light">
+      <i class="fas fa-user-minus"></i> Remove role
+    </a>
+    <a class="list-group-item list-group-item-action bg-light" [routerLink]="['/pages/lifecycle']"
+      routerLinkActive="active">
       <i class="fas fa-circle"></i> Lifecycle
     </a>
-    <a class="list-group-item list-group-item-action bg-light footer">
+  </div>
+  <div class="footer">
+    <a class="list-group-item list-group-item-action bg-light">
       <i class="fas fa-circle"></i> Status
     </a>
   </div>

@@ -17,6 +17,10 @@
     background-color: #132644 !important;
 }
 
+.list-group{
+    overflow: auto;
+}
+
 .list-group>a {
     color: #ffffff;
 }
@@ -54,13 +58,23 @@
     padding-right: 10px;
 }
 
-.list-group-item.footer {
-    position: absolute;
+.footer {
+    position: fixed;
     bottom: 0;
     width: 15rem;
     border-top: 1px solid rgb(0, 0, 0, 0.2);
+    color: #fff;
 }
 
-.list-group-item.footer i {
+.footer i {
+    padding: 0 10px 0 10px;
     color: green;
+}
+
+.footer>a:hover {
+    background-color: #132644 !important;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
 }

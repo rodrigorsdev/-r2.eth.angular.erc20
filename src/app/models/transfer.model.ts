@@ -1,4 +1,4 @@
 export interface TransferModel {
-    toAddress: string;
+    to: string;
     value: number;
 }
