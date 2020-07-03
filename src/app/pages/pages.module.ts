@@ -10,10 +10,19 @@ import { CustomFormsModule } from 'ngx-custom-validators';
 
 import { PagesAppComponent } from './pages.app.component';
 import { PagesRoutingModule } from './pages.route';
+
 import { NavComponent } from './layout/nav/nav.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
+
 import { WalletCardComponent } from '../components/wallet-card/wallet-card.component';
+import { CardTokenNameComponent } from '../components/card-token-name/card-token-name.component';
+import { CardTokenTotalSupplyComponent } from '../components/card-token-total-supply/card-token-total-supply.component';
+import { CardNetworkComponent } from '../components/card-network/card-network.component';
+import { NavConnectedComponent } from '../components/nav-connected/nav-connected.component';
+import { NavDisconnectedComponent } from '../components/nav-disconnected/nav-disconnected.component';
+import { TransactionListComponent } from '../components/transaction-list/transaction-list.component';
+
 import { HomeComponent } from './home/home.component';
 import { BalanceOfComponent } from './balance-of/balance-of.component';
 import { AllowanceComponent } from './allowance/allowance.component';
@@ -50,8 +59,14 @@ import { LifecycleComponent } from './lifecycle/lifecycle.component';
         RoleAddComponent,
         RoleRemoveComponent,
         LifecycleComponent,
+        CardTokenNameComponent,
+        CardTokenTotalSupplyComponent,
+        CardNetworkComponent,
+        NavConnectedComponent,
+        NavDisconnectedComponent,
+        TransactionListComponent
     ],
-    imports:[
+    imports: [
         CommonModule,
         RouterModule,
         PagesRoutingModule,

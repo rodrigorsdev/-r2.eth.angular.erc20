@@ -1,0 +1,11 @@
+.cards {
+    border-left: 6px solid var(--color-first);
+}
+
+h3 {
+    color: var(--color-first);
+}
+
+h6 {
+    color: var(--color-second);
+}

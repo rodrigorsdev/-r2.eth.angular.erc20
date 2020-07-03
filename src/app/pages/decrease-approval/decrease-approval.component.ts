@@ -32,8 +32,8 @@ export class DecreaseApprovalComponent implements OnInit {
   async ngOnInit() {
     this.ethersProvider = await this.ethersProvider;
     this.tokenService.decreaseApprovalTransactionHash.subscribe((result) => {
-      if (result)
-        this.result = link(this.ethersProvider._web3Provider['networkVersion'], result);
+      // if (result)
+        // this.result = link(this.ethersProvider._web3Provider['networkVersion'], result);
     });
   }
 

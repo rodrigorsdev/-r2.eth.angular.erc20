@@ -1,29 +1,51 @@
 import { Injectable, Inject } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { provider } from './ethers.service';
-import { ethers } from 'ethers';
-import { ContractService } from './contract.service';
+import { StorageService } from './storage.service';
+import { LocalStorageKeysEnum } from '../models/local-storage-keys.enum';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AccountService {
-    private _balanceEthers = new BehaviorSubject<any>(null);
-    
-
-    get balanceEthers() {
-        return this._balanceEthers.asObservable();
-    }
 
     constructor(
-        @Inject(provider) private ethersProvider: ethers.providers.Web3Provider,
-        private contractService: ContractService
+        private storageService: StorageService
     ) { }
 
-    async updateBalanceEthers(address: string) {
-        this.ethersProvider = await this.ethersProvider;
-        const balance = await this.ethersProvider.getBalance(address);
-        const formatedBalance = ethers.utils.formatEther(balance);
-        this._balanceEthers.next(formatedBalance);
+    setConectedAddress(address: string) {
+        this.storageService.setLocalStorage(
+            LocalStorageKeysEnum.connectedAddress,
+            address);
+    }
+
+    getConnectedAddress(): string {
+        return this.storageService.getLocalStorage(
+            LocalStorageKeysEnum.connectedAddress);
+    }
+
+    isConnected(): boolean {
+        if (!this.getConnectedAddress())
+            return false;
+        return true;
+    }
+
+    removeConnectedAddress() {
+        this.storageService.removeLocalStorage(
+            LocalStorageKeysEnum.connectedAddress);
+    }
+
+    setConectedNetwork(network: string) {
+        this.storageService.setLocalStorage(
+            LocalStorageKeysEnum.connectedNetwork,
+            network);
+    }
+
+    getConnectedNetwork() : string  {
+        return this.storageService.getLocalStorage(
+            LocalStorageKeysEnum.connectedNetwork);
+    }
+
+    removeConnectedNetwork() {
+        this.storageService.removeLocalStorage(
+            LocalStorageKeysEnum.connectedNetwork);
     }
 }

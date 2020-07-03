@@ -34,8 +34,8 @@ export class TransferComponent implements OnInit {
 
     this.tokenService.transferTransactionHash.subscribe((result) => {
 
-      if (result)
-        this.transferResult = link(this.ethersProvider._web3Provider['networkVersion'], result);
+      // if (result)
+        // this.transferResult = link(this.ethersProvider._web3Provider['networkVersion'], result);
     });
   }
 

@@ -1,0 +1,17 @@
+.modal-header {
+  background-color: #132644;
+  color: #FFF;
+  font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+}
+
+a :hover {
+  color: #d35613;
+}
+
+a i {
+  color: #132644;
+}

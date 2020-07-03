@@ -8,12 +8,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AccountAppComponent } from './account.app.component';
 import { AccountRoutingModule } from './account.route';
-import { SigninComponent } from './signin/signin.component';
+import { ConnectComponent } from './connect/connect.component';
 
 @NgModule({
     declarations: [
         AccountAppComponent,
-        SigninComponent
+        ConnectComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,37 @@
+<li class="nav-item">
+    <a class="nav-link" (click)="openSignIn(signinmodal)">
+        <i class="fa fa-sign-in fa-lg"></i>
+    </a>
+</li>
+
+<ng-template #signinmodal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Sign in</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="signin()" [formGroup]="form">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="password" name="email" class="form-control"
+                        type="password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': form.controls.password.invalid && form.controls.password.dirty, 'is-valid': form.controls.password.valid }">
+                    <span class="text-danger"
+                        *ngIf="form.controls.password.invalid && form.controls.password.dirty">
+                        <p *ngIf="form.controls.password.errors.required"> Password is required!</p>
+                    <p *ngIf="form.controls.password.errors.rangeLength"> Password must be between 6 and 15 characters!</p>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid"> Sigin </button>
+            </div>
+            <p class="text-center"><a class="btn" [routerLink]="['/accounts/create']" >Create wallet</a></p>
+        </form>
+    </div>
+</ng-template>

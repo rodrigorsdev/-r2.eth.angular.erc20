@@ -31,8 +31,8 @@ export class RoleAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.rolesService.addTransactionHash.subscribe((result) => {
-      if (result)
-        this.result = link(this.ethersProvider._web3Provider['networkVersion'], result);
+      // if (result)
+        // this.result = link(this.ethersProvider._web3Provider['networkVersion'], result);
     });
   }
 

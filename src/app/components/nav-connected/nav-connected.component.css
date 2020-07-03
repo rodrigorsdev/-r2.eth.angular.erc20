@@ -1,0 +1,15 @@
+a {
+    cursor: pointer;
+  }
+  
+  a :hover {
+    color: #d35613;
+  }
+  
+  a i {
+    color: #132644;
+  }
+
+  a i :hover{
+    color: #d35613;
+  }

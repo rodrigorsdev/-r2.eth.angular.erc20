@@ -3,11 +3,11 @@ import { AccountService } from 'src/app/services/account.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-nav-connected',
+  templateUrl: './nav-connected.component.html',
+  styleUrls: ['./nav-connected.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class NavConnectedComponent implements OnInit {
 
   constructor(
     private accountService: AccountService,
@@ -20,7 +20,6 @@ export class SidebarComponent implements OnInit {
   signout() {
     this.accountService.removeConnectedAddress();
     this.accountService.removeConnectedNetwork();
-    this.router.navigate(['/accounts/signin']);
+    this.router.navigate(['/accounts/connect']);
   }
-
 }

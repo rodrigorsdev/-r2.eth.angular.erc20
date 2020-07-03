@@ -1,46 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <button class="nav-link btn btn-light" (click)="toggleSidebar()">
-      <i class="fa fa-lg fa-bars"></i>
-    </button>
-    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"
-      data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="fas fa-file-contract"></i> {{erc20ContractAddress}}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="fas fa-tag"></i> {{name}}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="fas fa-file-signature"></i> {{symbol}}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="fas fa-coins"></i> {{totalSupply}}
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="fab fa-ethereum fa-lg"></i> {{networkName}}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="signout()">
-            <i class="fa fa-sign-out fa-lg"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <button class="nav-link btn btn-light" (click)="toggleSidebar()">
+    <i class="fa fa-lg fa-bars"></i>
+  </button>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"
+    data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <app-nav-disconnected *ngIf="!isConnected"></app-nav-disconnected>
+      <app-nav-connected *ngIf="isConnected"></app-nav-connected>
+    </ul>
+  </div>
+</nav>

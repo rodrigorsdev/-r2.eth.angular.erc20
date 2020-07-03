@@ -1,0 +1,7 @@
+.cards {
+    border-left: 6px solid var(--color-first);
+}
+
+h2{
+    margin-top: 20px;
+}

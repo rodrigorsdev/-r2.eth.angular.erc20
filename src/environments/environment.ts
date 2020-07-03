@@ -4,6 +4,10 @@
 
 export const environment = {
   production: false,
+  infura: {
+    projectId: 'fc142eec5b444fedb57f7fd92ac6e916',
+    projectSecret: '6f18e799a64147cf99cf7671deae7942'
+  },
   gasLimit: 10000000,
   erc20: {
     abi: [

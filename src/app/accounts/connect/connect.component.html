@@ -3,14 +3,15 @@
         <aside class="col-12 col-sm-12 col-md-4">
             <div class="card">
                 <article class="card-body">
-                    <h4 class="card-title mb-4 mt-1">Sign in</h4>
-                    <form (ngSubmit)="signin()" [formGroup]="form">
+                    <h4 class="card-title mb-4 mt-1">Connect</h4>
+                    <form (ngSubmit)="connect()" [formGroup]="form">
                         <div class="form-group">
                             <label for="erc20Address">ERC20 address</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> 
-                                        <i class="fas fa-file-contract" [ngClass]="{ 'icon-danger': form.controls.erc20Address.invalid && form.controls.erc20Address.dirty, 'icon-success': form.controls.erc20Address.valid }"></i> 
+                                    <span class="input-group-text">
+                                        <i class="fas fa-file-contract"
+                                            [ngClass]="{ 'icon-danger': form.controls.erc20Address.invalid && form.controls.erc20Address.dirty, 'icon-success': form.controls.erc20Address.valid }"></i>
                                     </span>
                                 </div>
                                 <input id="erc20Address" name="erc20Address" class="form-control" type="text"
@@ -23,13 +24,24 @@
                                 </p>
                             </span>
                             <div class="form-group">
+                                <label for="networkDropDown">Network</label>
+                                <select class="form-control" id="networkDropDown" formControlName="network">
+                                    <option value="homestead">Mainnet</option>
+                                    <option value="ropsten">Ropsten</option>
+                                    <option value="rinkeby">Rinkeby</option>
+                                    <option value="gorli">Görli </option>
+                                    <option value="kovan">Kovan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" id="remeberAddress" formControlName="remeberAddress">
-                                  <label class="form-check-label" for="remeberAddress">
-                                    Remember ERC20 address?
-                                  </label>
+                                    <input class="form-check-input" type="checkbox" id="remeberAddress"
+                                        formControlName="remeberAddress">
+                                    <label class="form-check-label" for="remeberAddress">
+                                        Remember ERC20 address?
+                                    </label>
                                 </div>
-                              </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid"> Sigin
